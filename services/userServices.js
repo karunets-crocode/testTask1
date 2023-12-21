@@ -33,12 +33,7 @@ const updateBalance_UP = async (userId, amount) => {
     throw new Error('User not found');
   }
 
-  if (user.balance < amount) {
-    console.error('Insufficient funds');
-    throw new Error('Insufficient funds');
-  }
-
-  user.balance += amount;
+  user.balance += Number(amount);
   await user.save();
 
   console.log('User found:', user); 
